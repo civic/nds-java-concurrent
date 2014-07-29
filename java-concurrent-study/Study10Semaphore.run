@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mvn -Dexec.mainClass=com.mycompany.concurrent.Study10Semaphore exec:java
+
