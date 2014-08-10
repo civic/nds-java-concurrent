@@ -1,5 +1,5 @@
 
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,7 +18,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 /**
- * Exchangerによるデータ交換
+ * Exchangerによるデータ交換。
+ * 2スレッドが200進んだら色を交換する。両方がexchangeするまで待つ。
  */
 public class Study12Exchanger {
     
@@ -71,11 +72,16 @@ public class Study12Exchanger {
         es.submit(t2);
 
 
+        /*
+        描画の更新用。
+        別スレッドから高速にrepaintを呼んでいる実装は変だが、
+        GUI操作を本題のTaskの方に実装したくないため、このようにしてある。
+        */
         new Thread(()->{
             while(true){
                 frame.repaint();
                 try {
-                    Thread.sleep(1L);
+                    Thread.sleep(10L);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Study12Exchanger.class.getName()).log(Level.SEVERE, null, ex);
                 }

@@ -1,4 +1,4 @@
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * Exectutorsを使った並行処理
- * @author t_sasaki
+ * 4つのスレッドを起動し、ログ出力をタスクを登録する。
  */
 public class Study04Executors {
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {

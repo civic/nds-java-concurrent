@@ -1,5 +1,5 @@
 
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,11 +19,10 @@ import javax.swing.JFrame;
 
 /**
  * Semaphore
- * @author tsasaki
+ * 8本のスレッドがセマフォを取得後に右に描画しようとするが、セマフォを取得できるのは3スレッドだけ。
  */
 public class Study10Semaphore {
     
-
     private static class Task implements Runnable{
         private int width;
         private final Semaphore semaphore;
@@ -63,19 +62,24 @@ public class Study10Semaphore {
         frame.add(panel, BorderLayout.CENTER);
         frame.pack();
 
-        Semaphore semaphore = new Semaphore(3);
-        ExecutorService es = Executors.newFixedThreadPool(8);
+        Semaphore semaphore = new Semaphore(3);     //セマフォは3つまで
+        ExecutorService es = Executors.newFixedThreadPool(8);   //8スレッド
         for (int i = 0; i < 8; i++){
             Task dt = new Task(semaphore);
             es.submit(dt);
             panel.tasks.add(dt);
         }
 
+        /*
+        描画の更新用。
+        別スレッドから高速にrepaintを呼んでいる実装は変だが、
+        GUI操作を本題のTaskの方に実装したくないため、このようにしてある。
+        */
         new Thread(()->{
             while(true){
                 frame.repaint();
                 try {
-                    Thread.sleep(1L);
+                    Thread.sleep(10L);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Study10Semaphore.class.getName()).log(Level.SEVERE, null, ex);
                 }

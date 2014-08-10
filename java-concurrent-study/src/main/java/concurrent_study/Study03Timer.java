@@ -1,11 +1,12 @@
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Timerを使った遅延実行
+ * Timerを使った遅延実行。
+ * Timerを使って、1秒後から0.5秒間隔で定期的に実行。5秒後に停止させる。
  */
 public class Study03Timer {
     public static void main(String[] args) {

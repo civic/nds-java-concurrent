@@ -1,8 +1,9 @@
 
-package com.mycompany.concurrent;
+package concurrent_study;
 
 /**
- * synchronizedの利用例
+ * synchronizedの利用例。
+ * synchronizedを使って、2つのスレッドからカウンターnumを安全にインクリメント。
  */
 public class Study02Synchronized {
     private static int num = 0;

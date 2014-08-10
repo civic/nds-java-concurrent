@@ -1,5 +1,5 @@
 
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 /**
  * parallelStreamによる並行処理。
- * @author tsasaki
+ * 1から10,000,000の要素を、2乗してBigDecimalに変換し合計する
  */
 public class Study06parallelStream {
     

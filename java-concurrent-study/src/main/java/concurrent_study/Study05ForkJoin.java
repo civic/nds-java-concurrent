@@ -1,4 +1,4 @@
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Fork/Joinで細粒度のタスクを実行
+ * Fork/Joinで細粒度のタスクを実行。
+ * １〜10,000,000の要素をすべて2乗してBigDecimal化し合計する。forkJoinで並行的に計算する。
  */
 public class Study05ForkJoin {
     

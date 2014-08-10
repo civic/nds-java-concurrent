@@ -1,5 +1,5 @@
 
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -7,7 +7,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * CountDownLatchでの同期
+ * CountDownLatchでの同期。
+ * 3つのスレッドがそれぞれ終了時にcountDownし、0になるのを待つ。
  */
 public class Study09CountDownLatch {
 

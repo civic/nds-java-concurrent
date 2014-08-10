@@ -1,10 +1,11 @@
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * AtomicIntegerによる複数スレッドでのカウンタインクリメント
+ * intとAtomicIntegerで比較。
  */
 public class Study08AtomicInteger {
     //private static int total; 

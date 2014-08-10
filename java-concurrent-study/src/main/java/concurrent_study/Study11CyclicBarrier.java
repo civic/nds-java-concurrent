@@ -1,5 +1,5 @@
 
-package com.mycompany.concurrent;
+package concurrent_study;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,6 +21,7 @@ import javax.swing.JFrame;
 
 /**
  * CyclickBarrierによる待ち合わせ
+ * 8本のスレッドがそれぞれの速さで描画し、200すすんだら全スレッドそろうまで待ち合わせ。それの繰り返し。
  */
 public class Study11CyclicBarrier {
     
@@ -65,8 +66,9 @@ public class Study11CyclicBarrier {
         frame.pack();
         frame.setVisible(true);
 
+        //8スレッド
         CyclicBarrier barrier = new CyclicBarrier(8, ()->{
-
+            //全スレッド待ち合わせ完了時のアクション
             for (int i = 0; i < 10; i++){
                 for (Task dt: panel.tasks){
                     dt.moving = !dt.moving;
@@ -82,11 +84,16 @@ public class Study11CyclicBarrier {
 
         }
 
+        /*
+        描画の更新用。
+        別スレッドから高速にrepaintを呼んでいる実装は変だが、
+        GUI操作を本題のTaskの方に実装したくないため、このようにしてある。
+        */
         new Thread(()->{
             while(true){
                 frame.repaint();
                 try {
-                    Thread.sleep(1L);
+                    Thread.sleep(10L);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Study11CyclicBarrier.class.getName()).log(Level.SEVERE, null, ex);
                 }

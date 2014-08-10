@@ -1,8 +1,9 @@
 
-package com.mycompany.concurrent;
+package concurrent_study;
 
 /**
  * Threadの利用例
+ * 2つのスレッドで異なるタイミングでカウンターを出力
  */
 public class Study01Thread {
     public static void main(String[] args) throws Exception{
